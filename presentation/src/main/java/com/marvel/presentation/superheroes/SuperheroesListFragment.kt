@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.marvel.presentation.R
 import com.marvel.presentation.databinding.FragmentSuperheroesListBinding
 
 class SuperheroesListFragment : Fragment() {
@@ -28,10 +30,10 @@ class SuperheroesListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val superheroesListLayoutManager = GridLayoutManager(requireContext(), 2)
         binding.recyclerSuperheroes.layoutManager = superheroesListLayoutManager
-        val superheroesListAdapter = SuperheroesListAdapter()
+        val superheroesListAdapter = SuperheroesListAdapter(
+            onClick = { findNavController().navigate(R.id.action_SuperheroesListFragment_to_SuperheroDetailsFragment) }
+        )
         binding.recyclerSuperheroes.adapter = superheroesListAdapter
-
-        // findNavController().navigate(R.id.action_SuperheroesListFragment_to_SuperheroDetailsFragment)
     }
 
     override fun onDestroyView() {

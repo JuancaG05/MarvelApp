@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.marvel.presentation.R
 import com.marvel.presentation.databinding.ItemSuperheroCardBinding
 
-class SuperheroesListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class SuperheroesListAdapter(
+    val onClick: () -> Unit,
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = ItemSuperheroCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return SuperheroCardViewHolder(binding)
@@ -21,6 +23,7 @@ class SuperheroesListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         superheroCardViewHolder.binding.apply {
             superheroImage.setImageResource(R.drawable.captain_america)
             superheroName.text = "Captain America"
+            superheroCard.setOnClickListener { onClick() }
         }
     }
 
