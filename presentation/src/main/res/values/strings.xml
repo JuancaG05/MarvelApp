@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MarvelApp</string>
+    <string name="title_activity_main">Main activity</string>
+
+    <string name="superheroes_list_fragment_label">Superheroes list</string>
+    <string name="second_fragment_label">Superhero details</string>
 </resources>
