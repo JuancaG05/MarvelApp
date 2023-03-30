@@ -5,13 +5,17 @@
 package com.marvel.data.superheroes.database
 
 import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy.Companion.REPLACE
 import androidx.room.Query
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface SuperheroDao {
+    @Insert(onConflict = REPLACE)
+    fun saveSuperheroes(superheroes: List<SuperheroEntity>): List<Long>
+
     @Query(SELECT_ALL_SUPERHEROES)
-    fun getAllSuperheroesAsStream(): Flow<List<SuperheroEntity>>
+    fun getAllSuperheroesAsStream(): List<SuperheroEntity>
 
     companion object {
         private const val SELECT_ALL_SUPERHEROES = """

@@ -11,10 +11,8 @@ import androidx.room.PrimaryKey
     tableName = "superheroes"
 )
 data class SuperheroEntity(
+    @PrimaryKey(autoGenerate = false)
     val name: String,
     val description: String,
     val imageUrl: String,
-) {
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0
-}
+)
