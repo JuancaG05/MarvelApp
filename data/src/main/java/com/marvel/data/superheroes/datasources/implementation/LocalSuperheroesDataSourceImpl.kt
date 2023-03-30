@@ -17,10 +17,6 @@ class LocalSuperheroesDataSourceImpl(
         superheroDao.saveSuperheroes(superheroesEntities)
     }
 
-    override fun getAllSuperheroes(): List<Superhero> {
-        return superheroDao.getAllSuperheroesAsStream().map {it.toModel() }
-    }
-
     private fun Superhero.toEntity() =
         SuperheroEntity(
             name = name,

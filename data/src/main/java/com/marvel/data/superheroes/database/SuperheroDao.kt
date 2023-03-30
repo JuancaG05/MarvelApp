@@ -15,7 +15,7 @@ interface SuperheroDao {
     fun saveSuperheroes(superheroes: List<SuperheroEntity>): List<Long>
 
     @Query(SELECT_ALL_SUPERHEROES)
-    fun getAllSuperheroesAsStream(): List<SuperheroEntity>
+    fun getAllSuperheroes(): List<SuperheroEntity>
 
     companion object {
         private const val SELECT_ALL_SUPERHEROES = """

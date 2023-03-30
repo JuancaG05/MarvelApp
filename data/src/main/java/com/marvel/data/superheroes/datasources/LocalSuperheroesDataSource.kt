@@ -8,5 +8,4 @@ import com.marvel.domain.superheroes.model.Superhero
 
 interface LocalSuperheroesDataSource {
     fun saveSuperheroes(superheroes: List<Superhero>)
-    fun getAllSuperheroes(): List<Superhero>
 }
