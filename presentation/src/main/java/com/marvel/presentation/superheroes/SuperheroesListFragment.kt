@@ -38,7 +38,11 @@ class SuperheroesListFragment : Fragment() {
         val superheroesListLayoutManager = GridLayoutManager(requireContext(), 2)
         binding.recyclerSuperheroes.layoutManager = superheroesListLayoutManager
         val superheroesListAdapter = SuperheroesListAdapter(
-            onClick = { findNavController().navigate(R.id.action_SuperheroesListFragment_to_SuperheroDetailsFragment) }
+            onClick = { superhero ->
+                val bundle = Bundle()
+                bundle.putParcelable("superhero", superhero)
+                findNavController().navigate(R.id.action_SuperheroesListFragment_to_SuperheroDetailsFragment, bundle)
+            }
         )
         binding.recyclerSuperheroes.adapter = superheroesListAdapter
 

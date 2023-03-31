@@ -9,11 +9,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.marvel.domain.superheroes.model.Superhero
-import com.marvel.presentation.R
 import com.marvel.presentation.databinding.ItemSuperheroCardBinding
 
 class SuperheroesListAdapter(
-    val onClick: () -> Unit,
+    val onClick: (Superhero) -> Unit,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val superheroesList = mutableListOf<Superhero>()
@@ -29,7 +28,7 @@ class SuperheroesListAdapter(
             val superhero = superheroesList[position]
             superheroImage.load(superhero.imageUrl)
             superheroName.text = superhero.name
-            superheroCard.setOnClickListener { onClick() }
+            superheroCard.setOnClickListener { onClick(superhero) }
         }
     }
 
