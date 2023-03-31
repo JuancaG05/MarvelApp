@@ -52,4 +52,5 @@ dependencies {
     implementation "io.insert-koin:koin-core:3.3.3"
     implementation "io.insert-koin:koin-androidx-workmanager:3.3.3"
     implementation "androidx.room:room-runtime:2.5.0"
+    implementation "io.coil-kt:coil:2.3.0"
 }

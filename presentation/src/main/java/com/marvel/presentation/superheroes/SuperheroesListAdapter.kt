@@ -7,6 +7,7 @@ package com.marvel.presentation.superheroes
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.marvel.domain.superheroes.model.Superhero
 import com.marvel.presentation.R
 import com.marvel.presentation.databinding.ItemSuperheroCardBinding
@@ -26,7 +27,7 @@ class SuperheroesListAdapter(
         val superheroCardViewHolder = holder as SuperheroCardViewHolder
         superheroCardViewHolder.binding.apply {
             val superhero = superheroesList[position]
-            superheroImage.setImageResource(R.drawable.captain_america)
+            superheroImage.load(superhero.imageUrl)
             superheroName.text = superhero.name
             superheroCard.setOnClickListener { onClick() }
         }

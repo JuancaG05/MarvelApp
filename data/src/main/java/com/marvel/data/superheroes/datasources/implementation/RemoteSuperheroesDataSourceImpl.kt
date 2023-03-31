@@ -22,7 +22,7 @@ class RemoteSuperheroesDataSourceImpl : RemoteSuperheroesDataSource {
                 Superhero(
                     name = superheroInstance.name,
                     description = superheroInstance.description,
-                    imageUrl = superheroInstance.thumbnail.path + superheroInstance.thumbnail.extension
+                    imageUrl = superheroInstance.thumbnail.path.replace("http", "https") + "." + superheroInstance.thumbnail.extension
                 )
             )
         }
