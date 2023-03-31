@@ -13,7 +13,7 @@ class SuperheroesRepositoryImpl(
     private val localSuperheroesDataSource: LocalSuperheroesDataSource,
     private val remoteSuperheroesDataSource: RemoteSuperheroesDataSource,
 ) : SuperheroesRepository {
-    override fun refreshSuperheroes(): List<Superhero> {
+    override suspend fun refreshSuperheroes(): List<Superhero> {
         val superheroes = remoteSuperheroesDataSource.refreshSuperheroes()
         localSuperheroesDataSource.saveSuperheroes(superheroes)
         return superheroes

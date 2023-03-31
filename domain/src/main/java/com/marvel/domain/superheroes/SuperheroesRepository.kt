@@ -7,5 +7,5 @@ package com.marvel.domain.superheroes
 import com.marvel.domain.superheroes.model.Superhero
 
 interface SuperheroesRepository {
-    fun refreshSuperheroes(): List<Superhero>
+    suspend fun refreshSuperheroes(): List<Superhero>
 }

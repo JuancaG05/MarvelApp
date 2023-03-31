@@ -5,21 +5,28 @@
 package com.marvel.data.superheroes.datasources.implementation
 
 import com.marvel.data.superheroes.datasources.RemoteSuperheroesDataSource
+import com.marvel.data.superheroes.network.MarvelApi
+import com.marvel.data.superheroes.network.SuperheroResponse
 import com.marvel.domain.superheroes.model.Superhero
 
 class RemoteSuperheroesDataSourceImpl : RemoteSuperheroesDataSource {
-    override fun refreshSuperheroes(): List<Superhero> {
-        return listOf(
-            Superhero(
-                name = "Name 1",
-                description = "Description 1",
-                imageUrl = "none"
-            ),
-            Superhero(
-                name = "Name 2",
-                description = "Description 2",
-                imageUrl = "none"
-            )
-        )
+    override suspend fun refreshSuperheroes(): List<Superhero> {
+        val superheroResponse = MarvelApi.retrofitService.getSuperheroes()
+        return superheroResponse.toModel()
     }
+
+    private fun SuperheroResponse.toModel(): List<Superhero> {
+        val superheroes = mutableListOf<Superhero>()
+        data.results.forEach { superheroInstance ->
+            superheroes.add(
+                Superhero(
+                    name = superheroInstance.name,
+                    description = superheroInstance.description,
+                    imageUrl = superheroInstance.thumbnail.path + superheroInstance.thumbnail.extension
+                )
+            )
+        }
+        return superheroes
+    }
+
 }

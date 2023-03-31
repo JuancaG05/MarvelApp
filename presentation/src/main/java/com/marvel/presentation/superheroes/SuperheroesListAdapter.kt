@@ -39,6 +39,7 @@ class SuperheroesListAdapter(
     fun setData(superheroes: List<Superhero>) {
         superheroesList.clear()
         superheroesList.addAll(superheroes)
+        notifyDataSetChanged()
     }
 
     class SuperheroCardViewHolder(val binding: ItemSuperheroCardBinding) : RecyclerView.ViewHolder(binding.root)

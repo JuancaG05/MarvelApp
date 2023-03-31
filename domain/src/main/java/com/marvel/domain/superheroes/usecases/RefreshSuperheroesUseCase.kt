@@ -9,6 +9,6 @@ import com.marvel.domain.superheroes.SuperheroesRepository
 class RefreshSuperheroesUseCase(
     private val superheroesRepository: SuperheroesRepository,
 ) {
-    fun execute() =
+    suspend fun execute() =
         superheroesRepository.refreshSuperheroes()
 }
