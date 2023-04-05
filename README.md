@@ -54,4 +54,4 @@ Some of the most important libraries used in this project are:
 - **Coil** for printing images retrieved from the Internet
 - **Room** for access to local database
 - **Retrofit** for network calls made to the Internet
-- **Moishi** for parsing JSONs coming from the Internet into app's business logic
+- **Moshi** for parsing JSONs coming from the Internet into app's business logic
